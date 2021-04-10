@@ -6,6 +6,7 @@ module.exports = {
       '/article_1',
       '/article_2',
       '/article_3',
+      '/article_4',
     ],
   },
 };
