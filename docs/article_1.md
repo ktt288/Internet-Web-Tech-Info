@@ -1,3 +1,5 @@
 # Internet
 
-- xxx
+- BGP
+- AS
+- IX
