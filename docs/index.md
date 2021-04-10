@@ -1,3 +1,4 @@
-# MDCアドベントカレンダー
+# Internet&Web Tech Info
 
-- MDCの2019年のアドベントカレンダーです
+- VuePress & github & netlifyを利用しています
+- 本サイト構築にあたり参照したサイト:[link](https://qiita.com/ozaki25/items/a1988b01f83f6616b7f9)

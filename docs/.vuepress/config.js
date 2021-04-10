@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'MDCアドベントカレンダー',
+  title: 'Internet&Web Tech Info',
   themeConfig: {
     sidebar: [
       '/',
