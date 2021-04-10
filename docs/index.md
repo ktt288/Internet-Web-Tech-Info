@@ -14,6 +14,7 @@ $ npm start
 - ctl + Cで環境停止
 
 ## 記事更新
+- git pull origin master
 - 記事更新(ローカル検証環境で動作確認)
 - [git push](https://to-be-loved.net/github-how-to-update/)
 - done!!!!
