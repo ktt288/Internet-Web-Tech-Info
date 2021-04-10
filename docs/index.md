@@ -16,4 +16,4 @@ $ npm start
 ## 記事更新
 - 記事更新(ローカル検証環境で動作確認)
 - [git push](https://to-be-loved.net/github-how-to-update/)
-- done!!
+- done!!!!
