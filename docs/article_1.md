@@ -28,7 +28,7 @@
 - ただし、DOMcontentloardedイベントを伴わないページ遷移においてTTIなど一部データは存在しないことになり、当然取得もされない（古いboomerangバージョンで取得されることもあったが、正しくはない）
 - [TTI](https://github.com/WICG/time-to-interactive/blob/master/README.md)
 - TTIのイメージ（上記サイトより）
-![](2021-04-13-21-55-31.png)
+![](/2021-04-13-21-55-31.png)
 
 ## 参考にしたサイト
 - http://pogs.mit.edu/static/js/boomerang/doc/ja/
