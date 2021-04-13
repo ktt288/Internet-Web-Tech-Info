@@ -18,3 +18,8 @@ $ npm start
 - 記事更新(ローカル検証環境で動作確認)
 - [git push](https://to-be-loved.net/github-how-to-update/)
 - done!!!!
+
+## Image追加
+1. Ctrl + Shift + Command + 4 で範囲選択してスクショ取得&クリップボードに取り込み
+2. Option + Command + v でmarkdownファイル中に貼り付け
+   
