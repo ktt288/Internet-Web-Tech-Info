@@ -39,12 +39,11 @@
 - we will propose the schedule from our end. 
   - 応用
     - We will propose the cost form our end.
-## 依頼する
+## 依頼する/質問する/打診する
 - If you have any demand in time line please let me know. 
   - 応用
     - If you have any demand in cost please let us know.
     - If you have any demand in SLA please let us know.
-## 会議/会話を打診する
 - I wish to see if you can spare your 15-30 min to discuss a further action plan to get us on the same page.
   - 応用
     - xx
