@@ -1,36 +1,35 @@
-# Boomerang
+# Webパフォーマンス
 
-## Boomerangとは？
-- boomelangはJavaScript
-- boomelangはオープンソース
-- boomelangはウェブページに埋め込んで使う
-- boomelangはウェブページのパフォーマンスを測定できる
+## Webパフォーマンスとは？
+- Webサイトが遅い！原因はどこ？
+  - ネットワークの帯域が細いからじゃない？帯域増やした方が良いのでは？
+  - いやいや、サーバスペックが低すぎでしょ。ハイスペックにした方が良いのでは？
+  - いやー、アプリケーションの作りが悪いんじゃ？アプリケーション改善が必要では？
+  - レイテンシーも関係するのでは...CDNを利用しないとだめでは？
+  - ブラウザでのスクリプト実行時間も関係するよね。
+  - 3rdパーティースクリプトも関係するの...？
+- 上記全て原因かもしれない
+- Webサイトのパフォーマンスは様々な要素が積み重なって決まる
+- Webサイトの表示をリクエストしてから表示が完了するまで、どんなことがどんな時間をかけて実行されているのか
+  - [Navigation Timing API](https://www.w3.org/TR/navigation-timing/)を使うことでこれを知ることができる
+![](https://www.w3.org/TR/navigation-timing/timing-overview.png)
 
-## パフォーマンス測定の方法
-- onbeforeunloadイベントからonloadイベントまでを測定する
-  - onbeforeunloadイベント（現在のウェブページから、他のウェブページに遷移する直前に発生するイベント）
-  - onloadイベント（htmlや画像の読み込みが完了した、すなわちあるウェブページの表示が完了した際に発生するイベント）
-  - この間における様々なタイミングデータを取得することができる。例えば、
-    - DNSの名前解決に要した時間
-    - TCP接続に要した時間
-    - SSL接続に要した時間
-    - 最初の1バイトを受領するまでの時間
-    - FCP/LCP...などなど
-  
-## シングルページ
-- デスクトップアプリケーションのようなユーザ体験が得られる
-- 一番最初のページ表示は通常のウェブサイトと概ね変わらない
-- その後の画面遷移は、スクリプトを実行し取得済みのコンテンツに差し替えるといった動作となる
-- Onbeforeunloadイベントやonloadイベントがなく、計測ができない...？
-- boomelangはSPA hardナビゲーション、SPA softナビゲーションによりシングルページの画面遷移時の情報も取得することができる
-  - 初回ページ表示はSPA hard
-  - その後のページ遷移はSPA soft
-- ただし、DOMcontentloardedイベントを伴わないページ遷移においてTTIなど一部データは存在しないことになり、当然取得もされない（古いboomerangバージョンで取得されることもあったが、正しくはない）
-- [TTI](https://github.com/WICG/time-to-interactive/blob/master/README.md)
-- TTIのイメージ（上記サイトより）
-![](/2021-04-13-21-55-31.png)
 
-## 参考にしたサイト
-- http://pogs.mit.edu/static/js/boomerang/doc/ja/
-- https://developer.akamai.com/tools/boomerang/release-notes/#1.700.0-(january-29,-2020)
-- https://akamai.github.io/boomerang/BOOMR.plugins.SPA.html#toc2__anchor
+  - domainLookupStart: DNS名前解決を開始する時点を示す
+  - domainLookupEnd: DNS名前解決の完了時点を示す
+  - connectStart: TCP 3way handshakeを開始する時点を示す
+  - secureConnectionStart: TCPコネクションが確立し、TLS handshakeを開始する時点を示す
+  - connectEnd: TCP/TLSコネクションが確立した時点を示す
+  - requestStart: HTTPリクエストを投げ始める時点を示す
+  - responseStart: HTTPレスポンスの1バイト目を受け取った時点を示す
+  - responseENd: HTTPレスポンスを受領仕切った時点を示す
+  - domLading: ブラウザがHTMLドキュメントのバイトの解析を開始する時点を示す
+  - domInteractive: ブラウザがHTMLの解析を全て完了し、DOMの構築が完了した時点を示す
+  - domCONtentLoaded: DOMの準備が整い、JavaScriptの実行をブロックするスタイルシートが存在しなくなった時点を示す
+    - これ以降、レンダリングツリーの構築が開始できる
+    - 多くのJavaScriptフレームワークでは、このイベントを待った上で、それ自体のロジックの実行を開始する
+      - このため、EventStartとEventEndのタイムスタンプをキャプチャすることで、この処理の所要時間をトラッキングできる
+  - domComplete: 全ての処理が完了し、ページ上にある全てのリソース（画像など）のダウンロードが完了したことを示す。読み込み中のマークの回転が止まった状態
+  - loadEvent: ページごとの読み込みの最終ステップとして、ブラウザはonloadイベントを発行する。これにより追加のアプリケーションロジックがトリガーされることがある。
+  - [参考サイト](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=ja#navigation-timing)
+
