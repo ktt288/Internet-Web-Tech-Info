@@ -50,6 +50,15 @@
 - If you have a time slot for tomorrow, please let me know.
   - 応用
     - xx
+- Does anyone have experience in using client certification to authenticate? If so, please let me know.(please ping me)
+  - 応用
+    - Does anyone have experience in using honor cache?
+- I would like to know client authentication initial provisioning.
+  - 応用
+    - I would like to know how to test for xx
+- Do you know testing method for client auth?
+  - 応用 
+    - Do you know provisioning method for SSmap?
 
 ## 箇条書き
 - 名詞で、、
