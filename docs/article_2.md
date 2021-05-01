@@ -1,6 +1,6 @@
 # Boomerang
 
-## Boomerangとは？
+## Boomerangとは
 - boomelangはJavaScript
 - boomelangはオープンソース
 - boomelangはウェブページに埋め込んで使う
