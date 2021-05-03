@@ -33,3 +33,36 @@
   - loadEvent: ページごとの読み込みの最終ステップとして、ブラウザはonloadイベントを発行する。これにより追加のアプリケーションロジックがトリガーされることがある。
   - [参考サイト](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=ja#navigation-timing)
 
+## DNS
+
+## TCP(TCP/TLS)
+
+## HTTP
+
+## Processing
+### Loading
+### scripting
+### Rendering
+### Painting
+
+## onLoad
+
+
+## memo
+1.	Event	
+  1. 下記はどういうタイミングで発火するか？
+  　・DOMContentLoaded
+  　・load
+  　・jQuery の $(document).ready はどのイベントと等価か？
+  2. イベントハンドラとは何か？
+  3. イベントハンドラの実行時間が長いと、Core Web Vitals のどの指標が悪化するか？
+
+
+
+2.	ページのロード過程
+  1. HTML をロードしている最中に下記のエレメントが出現したとき、どのような挙動になるか
+  　・script
+  　・link rel=""stylesheet""
+  2. script エレメントに async, defer 属性をつけると、どのような挙動になるか
+  3. async, defer 属性をつけたときの注意点は？
+  4. Script Management の Defer は、script エレメントに対してどのような影響を与えるか
