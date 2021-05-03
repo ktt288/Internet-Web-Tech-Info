@@ -49,20 +49,22 @@
 
 
 ## memo
-1.	Event	
-  1. 下記はどういうタイミングで発火するか？
-  　・DOMContentLoaded
-  　・load
-  　・jQuery の $(document).ready はどのイベントと等価か？
-  2. イベントハンドラとは何か？
-  3. イベントハンドラの実行時間が長いと、Core Web Vitals のどの指標が悪化するか？
+1. Event	
+- 下記はどういうタイミングで発火するか？
+  - DOMContentLoaded
+  - load
+  - jQuery の $(document).ready はどのイベントと等価か？
+- イベントハンドラとは何か？
+- イベントハンドラの実行時間が長いと、Core Web Vitals のどの指標が悪化するか？
 
 
 
 2.	ページのロード過程
-  1. HTML をロードしている最中に下記のエレメントが出現したとき、どのような挙動になるか
-  　・script
-  　・link rel=""stylesheet""
-  2. script エレメントに async, defer 属性をつけると、どのような挙動になるか
-  3. async, defer 属性をつけたときの注意点は？
-  4. Script Management の Defer は、script エレメントに対してどのような影響を与えるか
+- HTML をロードしている最中に下記のエレメントが出現したとき、どのような挙動になるか
+  - script
+  - link rel=""stylesheet""
+- script エレメントに async, defer 属性をつけると、どのような挙動になるか
+- async, defer 属性をつけたときの注意点は？
+- Script Management の Defer は、script エレメントに対してどのような影響を与えるか
+
+[参考](https://developers.google.com/web/fundamentals/performance/critical-rendering-path)
