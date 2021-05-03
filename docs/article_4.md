@@ -6,11 +6,13 @@
     - Thank you for the information about the issue status.
     - Thank you for the update on the issue.
     - Thank you for your approval.
+    - Thank you for your inquiry regarding the cache setting.
   - 補足
     - 前置詞 over、abount、onの使い分け。どれも...に関してという訳だがニュアンスの違いを理解する。
-      - over...ネットワーク増強ステータスに関する様々な情報
-      - about...ネットワーク増強ステータスに関連した情報
-      - on...ネットワーク増強ステータスに特化した情報
+      - over...に関する様々な情報
+      - about...に関連した情報
+      - on...に特化した情報
+      - regarding...に関して、、
 - Good to know that the response issues are improving.
   - 応用
     - Good to know that the issue is fixed.
@@ -39,6 +41,9 @@
 - we will propose the schedule from our end. 
   - 応用
     - We will propose the cost form our end.
+- If my understanding is correct, the effect of cache setting may be limited, as your cache hit rate is already very high.
+  - 応用
+    - If my understading is correct, ...
 ## 依頼する/質問する/打診する
 - If you have any demand in time line please let me know. 
   - 応用
@@ -59,6 +64,12 @@
 - Do you know testing method for client auth?
   - 応用 
     - Do you know provisioning method for SSmap?
+- I need to ask you a question in order to understand the intention of your question correctly.
+  - 応用
+    - I need to ask you a question in order to understand your requirement.
+- Can I understand that the cache setting is to improve your system response time?
+  - 応用
+    - Can I understand that xx
 
 ## 箇条書き
 - 名詞で、、
