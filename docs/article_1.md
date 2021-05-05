@@ -1,6 +1,6 @@
 # Web Performance
 
-## What is Web Performance?
+## Web Performanceとは？
 - Webサイトが遅い！原因はどこ？
   - ネットワークの帯域が細いからじゃない？帯域増やした方が良いのでは？
   - いやいや、サーバスペックが低すぎでしょ。ハイスペックにした方が良いのでは？
@@ -11,7 +11,7 @@
 - 上記全て原因かもしれない
 - Webサイトのパフォーマンスは様々な要素が積み重なって決まる
 - Webサイトの表示をリクエストしてから表示が完了するまで、どんなことがどんな時間をかけて実行されているのか
-  - [Navigation Timing API](https://www.w3.org/TR/navigation-timing/)を使うことでこれを知ることができる
+  - [Navigation Timing API](https://www.w3.org/TR/navigation-timing/)を使うことでこれを知ることができる（W3 / Navigation timingページより）
 ![](https://www.w3.org/TR/navigation-timing/timing-overview.png)
 
 
@@ -33,14 +33,77 @@
   - loadEvent: ページごとの読み込みの最終ステップとして、ブラウザはonloadイベントを発行する。これにより追加のアプリケーションロジックがトリガーされることがある。
   - [参考サイト](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=ja#navigation-timing)
 
-## DNS
+## Webサイトの表示をリクエストしてから表示が完了するまで
+- ブラウザがWebページをリクエストしてから表示されるまで、大まかに言うと4つの工程がある。
+  - Loading
+  - Scripting
+  - Rendering
+  - Painting
 
-## TCP(TCP/TLS)
-
-## HTTP
-
-## Processing
 ### Loading
+- この工程では主に2つの処理がある。
+  - リソースのダウンロード
+  - リソースのパース
+#### リソースのダウンロード
+  - リソースのダウンロードでは、Webページを構成する様々なファイルをWebサイトから取得する
+  - 具体的には
+    - HTMLファイル
+    - CSSファイル
+    - JavaScriptファイル
+    - JPEG、PNG、GIF、SVGなどの画像ファイル
+  - これらの取得は以下のステップで実行される。
+    - DNSの名前解決でWebサイトのIPアドレスを調べる
+    - WebサイトとTCP/TLSのコネクションを確立する
+    - HTTPでファイルのリクエストを投げる
+    - HTTPでファイルのレスポンスを受け取る
+
+##### DNS
+- Webページをリクエストする場合、ブラウザのアドレスバーにそのページのURLを入力する
+- 具体的には以下のようなURL
+  - https://example.jp/foobar.html
+- URLを手動で入力することもあれば、検索エンジンのリンクから指定されることもある
+- このURLは以下の要素で構成されている
+  - https -> Webサイトとのファイルのやりとりで利用するプロトコルを示す
+  - example.jp -> WebサイトのFQDNを示す
+  - /foobar.html -> ファイルのディレクトリ/ファイル名を示す
+- このWebサイトにWebページをリクエストする際、IPアドレスが必要
+- IPアドレスはFQDNに紐づく
+- FQDNに紐づくIPアドレスを調べるためにDNSを利用する
+- 通常、PCは自身が利用するキャッシュDNSサーバのアドレス情報を予め持っている。
+  - 契約しているISPがキャッシュDNSサービスを提供していることが多い
+  - ISPより提供されるキャッシュDNSサーバのアドレスを自身のネットワーク設定に追加している
+- このDNSサーバにFQDNに紐づくIPアドレスを問い合わせる
+- IPアドレスを取得するまでの流れは、以下の通り（JPRSサイトより）
+![](https://jprs.jp/glossary/imgs/stub-resolver.png)
+  - PC（DNSクライアント）がキャッシュDNSサーバに問い合わせる
+  - キャッシュDNSサーバは自身の持つroot DNSサーバに対し問い合わせる
+  - root DNSサーバは当該TLD（トップレベルドメイン）を管理するDNSサーバのIPを応答する
+  - キャッシュDNSサーバはTLDを管理するDNSサーバに対し問い合わせをする
+  - TDLを管理するDNSサーバは当該ドメイン（この例ではexample.jp）を管理するDNSサーバのIPを応答する
+  - キャッシュDNSサーバはexample.jpを管理するDNSサーバに対し問い合わせをする
+  - example.jpを管理するDNSサーバはexample.jpに紐づくIPを応答する
+- DNSによる名前解決において、パフォーマンスで注意すべきポイントは以下の通り
+  - DNSキャッシュを活用する
+    - 上述の通り、FQDNに紐づくIPの調査には時間を要する
+    - 一度調査したIPは一定時間キャッシュすることでこの時間をスキップできる
+    - キャッシュ場所は主に2箇所。PCとキャッシュDNSサーバ。
+    - PCでキャッシュすることで、当該PCは毎回名前解決が不要となる。
+    - キャッシュDNSサーバでキャッシュすることで、複数のクライアントが名前解決の結果を高速で受け取ることができる。
+    - キャッシュ時間は、example.jpのドメイン管理者が決め、それに従いPC、キャッシュDNSサーバはキャッシュする。
+- （グローバルに提供するWebサイトの場合）example.jpを管理するDNSサーバのロケーションに注意する
+  - DNSは通常UDPを利用する
+  - よってレイテンシーの影響は比較的受けにくい
+  - しかしレイテンシーは小さい方がパフォーマンスは良い
+  - Webサイト利用者がグローバルに存在する場合、単一ロケーションにDNSサーバがあることでレイテンシによりパフォーマンスが悪くなる場合がある
+  - そこで、DNSのクラウドサービスを利用しエンドユーザに近いDNSサーバより応答可能とするなどの考慮をすることで、パフォーマンスが改善できるケースがある
+
+##### TCP(TCP/TLS)
+
+##### HTTP
+
+#### リソースのパース
+
+
 ### scripting
 ### Rendering
 ### Painting
