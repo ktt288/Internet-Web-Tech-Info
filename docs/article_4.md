@@ -70,6 +70,11 @@
 - Can I understand that the cache setting is to improve your system response time?
   - 応用
     - Can I understand that xx
+- Please update information from each sub team.
+  - 応用
+    - Please update status about your work.
+    - Please share tech information if you have any.
+    - If you have any information to share or any trouble to discuss, please feel free to share.
 
 ## 箇条書き
 - 名詞で、、
