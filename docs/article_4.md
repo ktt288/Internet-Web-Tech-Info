@@ -44,6 +44,10 @@
 - If my understanding is correct, the effect of cache setting may be limited, as your cache hit rate is already very high.
   - 応用
     - If my understading is correct, ...
+- I will let you know when the implementation and verification are completed.
+  - 応用
+    - I will inform you when...
+    - I will notify you when...
 ## 依頼する/質問する/打診する
 - If you have any demand in time line please let me know. 
   - 応用
@@ -75,6 +79,7 @@
     - Please update status about your work.
     - Please share tech information if you have any.
     - If you have any information to share or any trouble to discuss, please feel free to share.
+- Regarding the schedule for disabling TLS1.0/1.1, what about 2021/5/17?
 
 ## 箇条書き
 - 名詞で、、
