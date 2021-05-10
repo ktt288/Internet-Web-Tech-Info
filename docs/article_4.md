@@ -48,6 +48,15 @@
   - 応用
     - I will inform you when...
     - I will notify you when...
+- You can streamline its maintenance by useing xx.
+  - 応用
+    - xx
+- I would conclude that the best way is xx.
+  - 応用
+    - xx
+- I have just had discussion on the implementation method for the cookie modification with my colleague.
+  - 応用
+    - xx
 ## 依頼する/質問する/打診する
 - If you have any demand in time line please let me know. 
   - 応用
