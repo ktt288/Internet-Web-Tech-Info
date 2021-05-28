@@ -1,6 +1,7 @@
 # English
 
 ## 感謝の気持ちを伝える
+- Thanks for reaching out today!
 - Thank you for the information over the network enhancement status.
   - 応用
     - Thank you for the information about the issue status.
@@ -17,6 +18,8 @@
   - 応用
     - Good to know that the issue is fixed.
 ## 事実や状況や考えを伝える
+- My name is Kotaro Tsuchiya and I'm part of the solutions archtect team at XX.
+- I've reviewd your request, and based on your requirements have routed it to one of may colleagues.
 - Looking at the server resource, the CPU utilization still seems to be on high side.
   - 応用
     - Looking at the offload rate, delivery volume to origin still seems to be on high side.
