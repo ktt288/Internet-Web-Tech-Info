@@ -85,6 +85,9 @@
 ### 同僚とcookie加工の方法について議論したところです
 - I have just had discussion on the implementation method for the cookie modification with my colleague.
 
+### あなたの懸念はリダイレクトと理解しました
+- I understand and your main concern is redirect.
+
 
 ## 3. 依頼する/質問する/打診する
 ### 気軽に質問してください。
@@ -131,6 +134,14 @@
 
 ### TLS1.0/1.1無効化の日程ですが、2021/5/17はどうでしょうか。
 - Regarding the schedule for disabling TLS1.0/1.1, what about 2021/5/17?
+
+### 以下のプランはどうですか？
+- How about the following plan?
+
+### 私の理解は以下の通りです、、、あってますか？
+- My understanding is following.
+- ...
+- Is it correct?
 
 ## 箇条書き
 - 名詞で、、
